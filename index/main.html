@@ -15,7 +15,7 @@
 
 <div id="frame">I'm the frame of data!
     <p id="frameText">My first image test.</p>
-    <img id="frameImage" src="" alt="ERROR:Image Not Found">
+    <img id="frameImage" onClick="changePicture()" src="" alt="ERROR:Image Not Found">
     
     <p>My first audio test.</p>
     <audio id="frameAudio" src="" controls>Your browser does not support the audio element.</audio>
@@ -26,12 +26,14 @@
 
 <!--Pull the JSON file off github repository fill img and audio-->
 <script>
+    var currentFrame;
     var xmlhttp = new XMLHttpRequest();
     var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/frames/frame_a.json"
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
+            currentFrame = myArr;
             populateFrame(myArr);
         }
     };
@@ -50,6 +52,15 @@
         audio.src = arr.audioSource;
         counter.innerHTML = arr.frameCount;
 
+    }
+
+    //rotate through the available pictures allow for animation
+    function changePicture() {
+        var image = document.getElementById("frameImage");
+        
+        var numOfImages = currentFrame.imageSource.length;
+        
+        image.src = currentFrame.imageSource[Math.floor(Math.random() * (numOfImages + 1))];
     }
 </script>
 
