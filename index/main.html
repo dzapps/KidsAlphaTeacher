@@ -39,7 +39,6 @@
     xmlhttp.send();
 
     function populateFrame(arr) {
-        alert("Populating the frame with JSON data." );
 
         var frameText = document.getElementById("frameText");
         var image = document.getElementById("frameImage");
@@ -47,7 +46,7 @@
         var counter = document.getElementById("frameCount");
 
         frameText.innerHTML = arr.text;
-        image.src = arr.imageSource;
+        image.src = arr.imageSource[0];
         audio.src = arr.audioSource;
         counter.innerHTML = arr.frameCount;
 
