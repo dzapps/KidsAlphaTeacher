@@ -1,5 +1,6 @@
 {
     "text": "This is the letter \"A\". Click the play button to hear what sound it makes! Then click the image!",
+    "frameCount": "1/26",
     "imageSource": "https://shore-skye.github.io/KidsAlphaTeacher/index/images/red-apple.png",
     "audioSource": "https://shore-skye.github.io/KidsAlphaTeacher/index/sounds/alphabetmp3s/sounds/a.mp3"
   }
