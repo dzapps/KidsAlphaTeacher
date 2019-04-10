@@ -26,19 +26,19 @@
 
 <!--Pull the JSON file off github repository fill img and audio-->
 <script>
+    var urlArray;
     var currentFrame;
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/frames/frame_a.json"
+    var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/urlArray.json"
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var myArr = JSON.parse(this.responseText);
-            currentFrame = myArr;
-            populateFrame(myArr);
+            urlArray = JSON.parse(this.responseText);
         }
     };
     xmlhttp.open("GET", url, true); 
     xmlhttp.send();
+    alert(JSON.stringify(urlArray));
 
     function populateFrame(arr) {
 
@@ -60,7 +60,7 @@
         
         var numOfImages = currentFrame.imageSource.length;
         
-        image.src = currentFrame.imageSource[Math.floor(Math.random() * (numOfImages + 1))];
+        image.src = currentFrame.imageSource[Math.floor(Math.random() * numOfImages)];
     }
 </script>
 
