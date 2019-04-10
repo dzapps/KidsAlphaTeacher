@@ -1,6 +1,8 @@
 {
     "text": "This is the letter \"A\". Click the play button to hear what sound it makes! Then click the image!",
     "frameCount": "1/26",
-    "imageSource": "https://shore-skye.github.io/KidsAlphaTeacher/index/images/red-apple.png",
+    "imageSource": ["https://shore-skye.github.io/KidsAlphaTeacher/index/images/Letter-A-icon.png", 
+                    "https://shore-skye.github.io/KidsAlphaTeacher/index/images/a-letter-lowercase-red,medium_large.1532897099.png",
+                    "https://shore-skye.github.io/KidsAlphaTeacher/index/images/red-apple.png"],
     "audioSource": "https://shore-skye.github.io/KidsAlphaTeacher/index/sounds/alphabetmp3s/sounds/a.mp3"
   }
