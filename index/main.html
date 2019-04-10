@@ -14,16 +14,45 @@
 <div id="frameCount">frameCounter</div>
 
 <div id="frame">I'm the frame of data!
-    <p>My first image test.</p>
-    <img id="frameImage" src="https://shore-skye.github.io/KidsAlphaTeacher/index/images/loading.gif" alt="Image Not Found">
+    <p id="frameText">My first image test.</p>
+    <img id="frameImage" src="" alt="ERROR:Image Not Found">
     
     <p>My first audio test.</p>
-    <audio id="frameAudio" src="https://shore-skye.github.io/KidsAlphaTeacher/index/sounds/alphabetmp3s/sounds/a.mp3" controls>Your browser does not support the audio element.</audio>
+    <audio id="frameAudio" src="" controls>Your browser does not support the audio element.</audio>
 </div>
 
 <input id="previousFrameButton" type="button" value="Back">
 <input id="nextFrameButton" type="button" value="Next">
 
+<!--Pull the JSON file off github repository fill img and audio-->
+<script>
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/frames/frame_a.json"
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            populateFrame(myArr);
+        }
+    };
+    xmlhttp.open("GET", url, true); 
+    xmlhttp.send();
+
+    function populateFrame(arr) {
+        alert("Populating the frame with JSON data." );
+
+        var frameText = document.getElementById("frameText");
+        var image = document.getElementById("frameImage");
+        var audio = document.getElementById("frameAudio");
+        var counter = document.getElementById("frameCount");
+
+        frameText.innerHTML = arr.text;
+        image.src = arr.imageSource;
+        audio.src = arr.audioSource;
+        counter.innerHTML = arr.frameCount;
+
+    }
+</script>
 
 </body>
 </html>
