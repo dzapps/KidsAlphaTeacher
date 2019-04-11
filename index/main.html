@@ -21,32 +21,56 @@
     <audio id="frameAudio" src="" controls>Your browser does not support the audio element.</audio>
 </div>
 
-<input id="previousFrameButton" type="button" value="Back">
-<input id="nextFrameButton" type="button" value="Next">
+<!-- <input id="previousFrameButton" type="button" value="Back">
+<input id="nextFrameButton" type="button" value="Next"> -->
+<input type="button" value="A" onclick="goToFrame(1)">
+<input type="button" value="B" onclick="goToFrame(2)">
+<input type="button" value="C" onclick="goToFrame(3)">
+<input type="button" value="D" onclick="goToFrame(4)">
+<input type="button" value="E" onclick="goToFrame(5)">
+<input type="button" value="F" onclick="goToFrame(6)">
+<input type="button" value="G" onclick="goToFrame(7)">
+<input type="button" value="H" onclick="goToFrame(8)">
+<input type="button" value="I" onclick="goToFrame(9)">
+<input type="button" value="J" onclick="goToFrame(10)">
+<input type="button" value="K" onclick="goToFrame(11)">
+<input type="button" value="L" onclick="goToFrame(12)">
+<input type="button" value="M" onclick="goToFrame(13)">
+<input type="button" value="N" onclick="goToFrame(14)">
+<input type="button" value="O" onclick="goToFrame(15)">
+<input type="button" value="P" onclick="goToFrame(16)">
+<input type="button" value="Q" onclick="goToFrame(17)">
+<input type="button" value="R" onclick="goToFrame(18)">
+<input type="button" value="S" onclick="goToFrame(19)">
+<input type="button" value="T" onclick="goToFrame(20)">
+<input type="button" value="U" onclick="goToFrame(21)">
+<input type="button" value="V" onclick="goToFrame(22)">
+<input type="button" value="W" onclick="goToFrame(23)">
+<input type="button" value="X" onclick="goToFrame(24)">
+<input type="button" value="Y" onclick="goToFrame(25)">
+<input type="button" value="Z" onclick="goToFrame(26)">
 
 <script>
-    var frameUrlArr = [];
+    var frameUrlArr = [
+        "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/frames/frame_a.json",
+        "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/frames/frame_b.json"
+    ];
     var currentFrame;
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/urlArray.json"
     
-    //retrieves an array of 26 JSON file urls that have frame data
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var myArr = JSON.parse(this.responseText);
-            saveUrls(myArr);
-        }
-    };
-    xmlhttp.open("GET", url, true); 
-    xmlhttp.send();
+    function goToFrame(frameNumber) {
+        var url = frameUrlArr[frameNumber - 1];
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                currentFrame = myArr;
+                populateFrame(myArr);
+            }
+        };
+        xmlhttp.open("GET", url, true); 
+        xmlhttp.send();
+    }   
 
-    function saveUrls(arr) {
-        var length = arr.frameUrls.length;
-        for (var i = 0; i < length; i++) {
-            frameUrlArr.push(arr[i]);
-        }
-        alert(frameUrlArr.length);
-    }
 
     function populateFrame(arr) {
         
