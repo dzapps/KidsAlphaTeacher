@@ -24,36 +24,44 @@
 <input id="previousFrameButton" type="button" value="Back">
 <input id="nextFrameButton" type="button" value="Next">
 
-<!--Pull the JSON file off github repository fill img and audio-->
 <script>
-    var urlArray;
+    var frameUrlArr = [];
     var currentFrame;
     var xmlhttp = new XMLHttpRequest();
     var url = "https://shore-skye.github.io/KidsAlphaTeacher/index/JSON/urlArray.json"
-
+    
+    //retrieves an array of 26 JSON file urls that have frame data
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            urlArray = JSON.parse(this.responseText);
+            var myArr = JSON.parse(this.responseText);
+            saveUrls(myArr);
         }
     };
     xmlhttp.open("GET", url, true); 
     xmlhttp.send();
-    alert(JSON.stringify(urlArray));
+
+    function saveUrls(arr) {
+        var length = arr.frameUrls.length;
+        for (var i = 0; i < length; i++) {
+            frameUrlArr.push(arr[i]);
+        }
+        alert(frameUrlArr.length);
+    }
 
     function populateFrame(arr) {
-
+        
         var frameText = document.getElementById("frameText");
         var image = document.getElementById("frameImage");
         var audio = document.getElementById("frameAudio");
         var counter = document.getElementById("frameCount");
-
+        
         frameText.innerHTML = arr.text;
         image.src = arr.imageSource[0];
         audio.src = arr.audioSource;
         counter.innerHTML = arr.frameCount;
-
+        
     }
-
+    
     //rotate through the available pictures allow for animation
     function changePicture() {
         var image = document.getElementById("frameImage");
@@ -62,7 +70,8 @@
         
         image.src = currentFrame.imageSource[Math.floor(Math.random() * numOfImages)];
     }
-</script>
+
+    </script>
 
 </body>
 </html>
