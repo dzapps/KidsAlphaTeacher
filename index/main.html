@@ -3,20 +3,38 @@
 <head>
     <title>Learn The Alphabet!</title>
     <link rel="stylesheet" type="text/css" href="styleSheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <script>
-    window.onload = goToFrame(1);
+    window.onload = function() {
+        //retrieve sessionStorage data if available else go to frame 1
+        if (localStorage.frameNumber) {
+            goToFrame(localStorage.getItem("frameNumber"));
+        } else {
+            goToFrame(1);
+        }
+    }
+    function removeStorage() {
+        localStorage.removeItem("frameNumber");
+    }
+    function warning() {
+        if(confirm("Are you sure you want to go Home? Your place will be reset!")) {
+            removeStorage();
+            window.location.href = "https://shore-skye.github.io/KidsAlphaTeacher/index/index.html";
+        } else {}
+    }
 </script>
-<form action="index.html">
-    <input type="submit" value="Home" />
+<form onsubmit="warning()">
+    <input type="submit" id="homeBtn" value="Home"></input>
 </form>
             
 <h1>Let's learn the alphabet!</h1>
 <div id="frameCount">frameCounter</div>
 
 <div id="frame">
-    <p id="frameText"></p>
+    <div style="text-align:center;"><p id="frameText"></p></div>
+    
     <img id="frameImage" onClick="changePicture()" src="" alt="Ops! Image Not Found">
     <audio id="frameAudio" src="" controls>Your browser does not support the audio element.</audio>
 </div>
@@ -91,6 +109,8 @@
         };
         xmlhttp.open("GET", url, true); 
         xmlhttp.send();
+        //store frameNumber to session storage
+        localStorage.setItem("frameNumber", frameNumber);
     }   
 
 

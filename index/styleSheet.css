@@ -1,5 +1,7 @@
 h1 {
-    color: rgb(50, 50, 241);
+    color: rgb(53, 53, 255);
+    font-family: Georgia, serif;
+    font-size: 50px;
 }
 #frame {
     background-color: rgb(192, 192, 192);
@@ -10,3 +12,73 @@ h1 {
 body {
     background-color: rgb(252, 252, 103);
 }
+input[type="submit"] {
+    height: 30px;
+    width: 55px;
+    padding: 4px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 4px;
+}
+input[type="submit"]:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(204, 204, 204);
+}
+input[type="button"] {
+    height: 30px;
+    width: 30px;
+    padding: 4px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 4px;
+}
+input[type="button"]:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(240, 240, 240);
+}
+#frameCount {
+    background-color: rgb(0, 201, 201);
+    width: 40px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 18px;
+}
+#frameText {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color: rgba(255, 201, 52, 0.774);
+    padding: 3px;
+    border-radius: 2px;
+    width: 99%;
+    display: inline-block;    
+}
+#homeBtn:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
