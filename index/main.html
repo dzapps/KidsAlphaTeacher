@@ -19,11 +19,10 @@
         localStorage.removeItem("frameNumber");
     }
     function warning() {
-        if(confirm("Are you sure you want to go Home? Your place will be reset!")) {
-            alert("confirmed");
+        if(confirm("Are you sure you want to go Home? Your place will be reset!")) {;
             window.location.href = "https://shore-skye.github.io/KidsAlphaTeacher/index/index.html";
             removeStorage();
-        } else {alert("canceled");}
+        } else {}
     }
 </script>
 <form onsubmit="warning()">
