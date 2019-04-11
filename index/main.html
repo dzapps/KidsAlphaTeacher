@@ -20,9 +20,10 @@
     }
     function warning() {
         if(confirm("Are you sure you want to go Home? Your place will be reset!")) {
+            alert("confirmed");
             window.location.href = "https://shore-skye.github.io/KidsAlphaTeacher/index/index.html";
             removeStorage();
-        } else {}
+        } else {alert("canceled");}
     }
 </script>
 <form onsubmit="warning()">
