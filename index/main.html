@@ -13,16 +13,12 @@
 <h1>Let's learn the alphabet!</h1>
 <div id="frameCount">frameCounter</div>
 
-<div id="frame">I'm the frame of data!
-    <p id="frameText">My first image test.</p>
-    <img id="frameImage" onClick="changePicture()" src="" alt="ERROR:Image Not Found">
-    
-    <p>My first audio test.</p>
+<div id="frame">
+    <p id="frameText"></p>
+    <img id="frameImage" onClick="changePicture()" src="" alt="Ops! Image Not Found">
     <audio id="frameAudio" src="" controls>Your browser does not support the audio element.</audio>
 </div>
 
-<!-- <input id="previousFrameButton" type="button" value="Back">
-<input id="nextFrameButton" type="button" value="Next"> -->
 <input type="button" value="A" onclick="goToFrame(1)">
 <input type="button" value="B" onclick="goToFrame(2)">
 <input type="button" value="C" onclick="goToFrame(3)">
@@ -113,7 +109,6 @@
     //rotate through the available pictures allow for animation
     function changePicture() {
         var image = document.getElementById("frameImage");
-        
         var numOfImages = currentFrame.imageSource.length;
         
         image.src = currentFrame.imageSource[Math.floor(Math.random() * numOfImages)];
