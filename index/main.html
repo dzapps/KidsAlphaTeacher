@@ -16,17 +16,12 @@
         }
     }
     function removeStorage() {
+        alert("Thanks for visiting! Your progress will be reset!");
         localStorage.removeItem("frameNumber");
     }
-    function warning() {
-        if(confirm("Are you sure you want to go Home? Your place will be reset!")) {;
-            window.location.href = "https://shore-skye.github.io/KidsAlphaTeacher/index/index.html";
-            removeStorage();
-        } else {}
-    }
 </script>
-<form onsubmit="warning()">
-    <input type="submit" id="homeBtn" value="Home"></input>
+<form action="https://shore-skye.github.io/KidsAlphaTeacher/index/index.html">
+    <input type="submit" id="homeBtn" value="Home" onclick="removeStorage()"></input>
 </form>
             
 <h1>Let's learn the alphabet!</h1>
