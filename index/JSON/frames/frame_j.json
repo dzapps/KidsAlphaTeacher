@@ -1,9 +1,9 @@
 {
     "text": "This is the letter \"B\". Click the play button to hear what sound it makes! Then click the image!",
-    "frameCount": "2/26",
+    "frameCount": "10/26",
     "imageSource": [
-        "https://shore-skye.github.io/KidsAlphaTeacher/index/images/Uppercase_J.png", 
-        "https://shore-skye.github.io/KidsAlphaTeacher/index/images/lowercase_J.png",
+        "https://shore-skye.github.io/KidsAlphaTeacher/index/images/Uppercase_J.jpg", 
+        "https://shore-skye.github.io/KidsAlphaTeacher/index/images/Lowercase_J.png",
         "https://shore-skye.github.io/KidsAlphaTeacher/index/images/Justice.png"
     ],
     "audioSource": "https://shore-skye.github.io/KidsAlphaTeacher/index/sounds/alphabetmp3s/sounds/j.mp3"
